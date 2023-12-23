@@ -1,31 +1,33 @@
-import reactLogo from './assets/react.svg'
-import { Grid, GridItem, Show } from '@chakra-ui/react'
-import NavBar from './components/NavBar'
-import './App.css'
-import GameGrid from './components/GameGrid'
+import reactLogo from "./assets/react.svg";
+import { Grid, GridItem, Show, Container, VStack } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import "./App.css";
+import GameGrid from "./components/GameGrid";
 
 function App() {
   return (
-    <Grid templateAreas={
-      {
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`
-      }
-    }>
-      <GridItem area={"nav"}>
-          <NavBar />
-      </GridItem>
-      <Show above='lg'>
-        <GridItem area={"aside"}>
-          Aside
-        </GridItem>
-      </Show>
-      <GridItem area={"main"}>
-          <GameGrid />
-      </GridItem>
+    <VStack>
+      <Container maxW="container.xl">
+        <Grid
+          templateAreas={{
+            base: `"nav" "main"`,
+            lg: `"nav nav" "aside main"`,
+          }}
+        >
+          <GridItem area={"nav"}>
+            <NavBar />
+          </GridItem>
+          <Show above="lg">
+            <GridItem area={"aside"}>Aside</GridItem>
+          </Show>
+          <GridItem area={"main"}>
+            <GameGrid />
+          </GridItem>
+        </Grid>
+      </Container>
+    </VStack>
 
-    </Grid>
-  )
+  );
 }
 
-export default App
+export default App;
