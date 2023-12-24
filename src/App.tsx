@@ -18,7 +18,7 @@ function App() {
   }
   return (
     <VStack>
-      <Container maxW="container.xl">
+      <Container maxW="container.2xl">
         <Grid
           templateAreas={{
             base: `"nav" "main"`,
@@ -26,7 +26,7 @@ function App() {
           }}
           templateColumns={{
             base: '1fr',
-            lg: '1fr 200px'
+            lg: '1fr 300px'
           }}
         >
           <GridItem area={"nav"}>
