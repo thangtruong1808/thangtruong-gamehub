@@ -4,8 +4,18 @@ import NavBar from "./components/NavBar";
 import "./App.css";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
+import { useState } from "react";
+import { Genre } from "./hooks/useGenres";
+import DrawerExample from "./components/DrawerExample";
+
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)  
+  
+  const handleOnSelectedGenre = (genre: Genre) => {
+    setSelectedGenre(genre)
+    console.log(genre)
+  }
   return (
     <VStack>
       <Container maxW="container.xl">
@@ -20,7 +30,11 @@ function App() {
           }}
         >
           <GridItem area={"nav"}>
-            <NavBar />
+            {/* <NavBar onSelectedGenreNavBar={(genre) => setSelectedGenre(genre)} /> */}
+            <NavBar
+              onSelectedGenre={handleOnSelectedGenre}
+               styleSelectedGenre={selectedGenre}
+            />
           </GridItem>
           
           <Show above="lg">
@@ -36,7 +50,7 @@ function App() {
           </Show>
           
           <GridItem area={"main"}>
-            <GameGrid />
+            <GameGrid selectedGenre={selectedGenre}/>
           </GridItem>
         </Grid>
       </Container>

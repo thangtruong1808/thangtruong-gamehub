@@ -1,5 +1,9 @@
 import {
   Button,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
   Divider,
   Drawer,
   DrawerBody,
@@ -20,11 +24,20 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import React, { useState } from "react";
 import GenreList from "./GenreList";
+import { Genre } from "../hooks/useGenres";
 
-const DrawerExample = () => {
+interface Props {
+  onSelectedGenre: (genre: Genre) => void;
+  styleSelectedGenre: Genre | null;
+}
+const DrawerExample = ({onSelectedGenre, styleSelectedGenre}: Props) => {
+  const [selectedGenre, setSelectedGenre ] = useState<Genre | null>(null)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
+  const handleSelectedGenre = () => {
+    
+  }
   return (
     <>
       {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
@@ -38,8 +51,6 @@ const DrawerExample = () => {
           // variant="outline"
           size ="lg"
           onClick={onOpen}
-          
-          
         />
       </Menu>
 
@@ -47,7 +58,7 @@ const DrawerExample = () => {
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
-        size={"sm"}
+        size={"xs"}
         // finalFocusRef={btnRef}
       >
         <DrawerOverlay />
@@ -57,18 +68,24 @@ const DrawerExample = () => {
             textAlign={'center'}
             fontSize={'3xl'}
             textTransform={'capitalize'}
-          >
+          >            
             Categories</DrawerHeader>
           <Divider />
-          <DrawerBody>
-            <GenreList />
+          <DrawerBody   
+            onClick={onClose}            
+          >
+            <GenreList              
+              onSelectedGenre={onSelectedGenre}
+              styleSelectedGenre={styleSelectedGenre}
+              // onSelectedGenre={(genre) => setSelectedGenre(genre)}
+           />
           </DrawerBody>
 
           <DrawerFooter>
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue">Save</Button>
+            <Button colorScheme="blue" >Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
