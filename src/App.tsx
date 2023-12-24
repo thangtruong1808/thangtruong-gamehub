@@ -7,6 +7,7 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import DrawerExample from "./components/DrawerExample";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -21,12 +22,12 @@ function App() {
       <Container maxW="container.2xl">
         <Grid
           templateAreas={{
-            base: `"nav" "main"`,
-            lg: `"nav nav" "main aside"`,
+            base: `"nav" "main" "footer"`,
+            lg: `"nav " "main" "footer"`,
           }}
           templateColumns={{
             base: '1fr',
-            lg: '1fr 300px'
+            lg: '1fr'
           }}
         >
           <GridItem area={"nav"}>
@@ -36,10 +37,16 @@ function App() {
                styleSelectedGenre={selectedGenre}
             />
           </GridItem>
-          
-          <Show above="lg">
+          <GridItem area={"main"}>
+            <GameGrid selectedGenre={selectedGenre}/>
+          </GridItem>
+
+          <GridItem>
+            <Footer />
+          </GridItem>
+          {/* <Show above="lg">
             <GridItem area={"aside"}>
-              {/* <GenreList />  */}
+              <GenreList /> 
               <Text
                 textAlign={'center'}
                 fontSize={'xl'}
@@ -47,11 +54,9 @@ function App() {
               >Latest Release</Text>
               <Divider />
             </GridItem>
-          </Show>
+          </Show> */}
           
-          <GridItem area={"main"}>
-            <GameGrid selectedGenre={selectedGenre}/>
-          </GridItem>
+          
         </Grid>
       </Container>
     </VStack>
