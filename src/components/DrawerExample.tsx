@@ -32,7 +32,7 @@ const DrawerExample = () => {
         <MenuButton
           as={IconButton}
           aria-label="Options"
-          icon={<HamburgerIcon boxSize={"30px"}/>}
+          icon={<HamburgerIcon boxSize={"34px"}/>}
           // variant="outline"
           size ="lg"
           onClick={onOpen}
