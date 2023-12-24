@@ -1,5 +1,6 @@
 import {
   Button,
+  Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -52,8 +53,13 @@ const DrawerExample = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Genre List</DrawerHeader>
-
+          <DrawerHeader
+            textAlign={'center'}
+            fontSize={'3xl'}
+            textTransform={'capitalize'}
+          >
+            Categories</DrawerHeader>
+          <Divider />
           <DrawerBody>
             <GenreList />
           </DrawerBody>
