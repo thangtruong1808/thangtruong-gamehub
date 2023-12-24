@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons'
 import React, { useState } from "react";
+import GenreList from "./GenreList";
 
 const DrawerExample = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -51,10 +52,10 @@ const DrawerExample = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader>Genre List</DrawerHeader>
 
           <DrawerBody>
-            <Input placeholder="Type here..." />
+            <GenreList />
           </DrawerBody>
 
           <DrawerFooter>
