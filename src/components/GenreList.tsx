@@ -12,8 +12,9 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-    Box,
+  Box,
   Center,
+  Heading,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageURL from "../services/image-url";
@@ -33,10 +34,7 @@ const GenreList = ({ onSelectedGenre, styleSelectedGenre }: Props) => {
     );
   if (isLoading)
     return (
-        <Center
-            height={'150px'}
-        >
-        
+      <Center height={"150px"}>
         <Spinner
           thickness="4px"
           speed="0.65s"
@@ -49,15 +47,17 @@ const GenreList = ({ onSelectedGenre, styleSelectedGenre }: Props) => {
 
   return (
     <List>
+      <Heading fontSize={"2xl"} marginBottom={3} textAlign={"center"}>
+        Categories
+      </Heading>
       {data.map((genre) => (
         <ListItem key={genre.id} paddingY={"7px"}>
-              <HStack
-              bgColor={
-                genre.id === styleSelectedGenre?.id ? "grey" : "normal"
-              }
-                overflow={'hidden'}
-              >
+          <HStack
+            bgColor={genre.id === styleSelectedGenre?.id ? "grey" : "normal"}
+            overflow={"hidden"}
+          >
             <Image
+              objectFit={"cover"}
               boxSize={"70px"}
               borderRadius={"10px"}
               src={getCroppedImageURL(genre.image_background)}
@@ -72,12 +72,13 @@ const GenreList = ({ onSelectedGenre, styleSelectedGenre }: Props) => {
               colorScheme={
                 genre.id === styleSelectedGenre?.id ? "red" : "normal"
               }
-            
               fontSize={"lg"}
               variant={"link"}
               onClick={() => {
                 onSelectedGenre(genre);
               }}
+              whiteSpace={"normal"}
+              textAlign={"left"}
             >
               {genre.name}
             </Button>
