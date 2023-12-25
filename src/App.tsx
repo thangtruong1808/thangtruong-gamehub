@@ -1,5 +1,13 @@
 import reactLogo from "./assets/react.svg";
-import { Grid, GridItem, Show, Container, VStack, Text, Divider } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Show,
+  Container,
+  VStack,
+  Text,
+  Divider,
+} from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import GameGrid from "./components/GameGrid";
@@ -8,15 +16,18 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import DrawerExample from "./components/DrawerExample";
 import Footer from "./components/Footer";
-
+import PlatformSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/useGames";
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)  
-  
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
+
   const handleOnSelectedGenre = (genre: Genre) => {
-    setSelectedGenre(genre)
-    console.log(genre)
-  }
+    setSelectedGenre(genre);
+  };
   return (
     <VStack>
       <Container maxW="container.2xl">
@@ -26,19 +37,29 @@ function App() {
             lg: `"nav " "main" "footer"`,
           }}
           templateColumns={{
-            base: '1fr',
-            lg: '1fr'
+            base: "1fr",
+            lg: "1fr",
           }}
         >
           <GridItem area={"nav"}>
             {/* <NavBar onSelectedGenreNavBar={(genre) => setSelectedGenre(genre)} /> */}
             <NavBar
               onSelectedGenre={handleOnSelectedGenre}
-               styleSelectedGenre={selectedGenre}
+              styleSelectedGenre={selectedGenre}
             />
           </GridItem>
           <GridItem area={"main"}>
-            <GameGrid selectedGenre={selectedGenre}/>
+            {/* {selectedPlatform?.name + " Genre:" + selectedGenre?.name} */}
+            <PlatformSelector
+              onSelectedPlatform={(platform) => {
+                setSelectedPlatform(platform);
+              }}
+              selectedPlatform={selectedPlatform}
+            />
+            <GameGrid
+              selectedGenre={selectedGenre}
+              selectedPlatform={selectedPlatform}
+            />
           </GridItem>
 
           <GridItem>
@@ -55,12 +76,9 @@ function App() {
               <Divider />
             </GridItem>
           </Show> */}
-          
-          
         </Grid>
       </Container>
     </VStack>
-
   );
 }
 

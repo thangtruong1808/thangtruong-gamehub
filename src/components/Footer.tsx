@@ -1,7 +1,9 @@
 import React from 'react'
 import { Container, Divider, Link , HStack, Text,  Box, List, ListItem } from '@chakra-ui/react'
 import { EmailIcon } from '@chakra-ui/icons'
-import { FaSquareFacebook, FaLinkedin  } from "react-icons/fa6";
+import { FaSquareFacebook, FaLinkedin, FaUserGraduate  } from "react-icons/fa6";
+import { FaMale } from "react-icons/fa";
+
 import logo from '../assets/react.svg'
 
 const Footer = () => (
@@ -19,13 +21,17 @@ const Footer = () => (
                     fontSize={'22px'}
                     textTransform={'uppercase'}
                     fontWeight={'bold'}
+                    color={'tomato'}
                 > Information</Text>    
+                <HStack>
+                <FaUserGraduate size={'26px'} color='#4267B2'/>
                 <Text
                     fontSize={'16px'}
                     textTransform={'capitalize'}                    
-                > Full Name: Thang Truong</Text>    
+                    > Thang Truong</Text>    
+                </HStack>
                 <HStack>
-                    <EmailIcon boxSize={'30px'}/>
+                    <EmailIcon boxSize={'30px'} color='#4267B2'/>
                     <Text
                     fontSize={'16px'}
                     >thangtruong1808@gmail.com</Text>
@@ -65,6 +71,7 @@ const Footer = () => (
                     fontSize={'22px'}
                     textTransform={'uppercase'}
                     fontWeight={'bold'}
+                    color={'tomato'}
                 > Technologies</Text>    
                 <Text
                     fontSize={'16px'}
@@ -93,6 +100,7 @@ const Footer = () => (
                     fontSize={'22px'}
                     textTransform={'uppercase'}
                     fontWeight={'bold'}
+                    color={'tomato'}
                 > Features in used</Text>    
                 <Box
                     fontSize={'16px'}
