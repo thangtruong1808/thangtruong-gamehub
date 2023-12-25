@@ -21,7 +21,7 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 import GenreList from "./GenreList";
 import { Genre } from "../hooks/useGenres";
@@ -30,14 +30,12 @@ interface Props {
   onSelectedGenre: (genre: Genre) => void;
   styleSelectedGenre: Genre | null;
 }
-const DrawerExample = ({onSelectedGenre, styleSelectedGenre}: Props) => {
-  const [selectedGenre, setSelectedGenre ] = useState<Genre | null>(null)
+const DrawerExample = ({ onSelectedGenre, styleSelectedGenre }: Props) => {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
-  const handleSelectedGenre = () => {
-    
-  }
+  const handleSelectedGenre = () => {};
   return (
     <>
       {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
@@ -47,9 +45,9 @@ const DrawerExample = ({onSelectedGenre, styleSelectedGenre}: Props) => {
         <MenuButton
           as={IconButton}
           aria-label="Options"
-          icon={<HamburgerIcon boxSize={"34px"}/>}
+          icon={<HamburgerIcon boxSize={"34px"} />}
           // variant="outline"
-          size ="lg"
+          size="lg"
           onClick={onOpen}
         />
       </Menu>
@@ -65,27 +63,26 @@ const DrawerExample = ({onSelectedGenre, styleSelectedGenre}: Props) => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader
-            textAlign={'center'}
-            fontSize={'3xl'}
-            textTransform={'capitalize'}
-          >            
-            Categories</DrawerHeader>
-          <Divider />
-          <DrawerBody   
-            onClick={onClose}            
+            textAlign={"center"}
+            fontSize={"3xl"}
+            textTransform={"capitalize"}
           >
-            <GenreList              
+            Categories
+          </DrawerHeader>
+          <Divider />
+          <DrawerBody onClick={onClose}>
+            <GenreList
               onSelectedGenre={onSelectedGenre}
-              styleSelectedGenre={styleSelectedGenre}
+              // styleSelectedGenre={styleSelectedGenre}
               // onSelectedGenre={(genre) => setSelectedGenre(genre)}
-           />
+            />
           </DrawerBody>
 
           <DrawerFooter>
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue" >Save</Button>
+            <Button colorScheme="blue">Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

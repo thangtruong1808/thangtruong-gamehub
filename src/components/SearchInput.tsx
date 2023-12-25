@@ -20,7 +20,7 @@ const Search = ({ onSearch }: Props) => {
         <InputLeftElement children={<BsSearch />} />
         <Input
           borderRadius={"20"}
-          placeholder="Search games . . . "
+          placeholder="Search 860,808 games "
           variant={"filled"}
           size={"md"}
           ref={ref}
