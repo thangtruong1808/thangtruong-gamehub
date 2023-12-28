@@ -8,7 +8,7 @@ import GenreList from "./GenreList";
 
 const MyNavBar = () => {
   return (
-    <Container maxW="container.2xl" p={10}>
+    <Container maxW="container.xl" p={10}>
       <HStack padding={"10px"}>
         <Link to="/">
           <Image src={logo} boxSize={"50px"} />

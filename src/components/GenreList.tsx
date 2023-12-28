@@ -23,7 +23,6 @@ import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageURL from "../services/image-url";
 import useGameQueryStore from "./MyStore";
-import ExpandableList from "./ExpandableList";
 
 const GenreList = () => {
   const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
@@ -53,12 +52,12 @@ const GenreList = () => {
       {/* <Heading fontSize={"30px"} marginBottom={3} textAlign={"left"} margin={5}>
         Genre
       </Heading> */}
-      <Accordion defaultIndex={[0]} allowMultiple allowToggle>
+      <Accordion allowToggle>
         <AccordionItem>
           <AccordionButton>
             <Box as="span" flex="1" textAlign="left">
               <Heading
-                fontSize={"30px"}
+                fontSize={"20px"}
                 // marginBottom={3}
                 textAlign={"left"}
                 // margin={5}

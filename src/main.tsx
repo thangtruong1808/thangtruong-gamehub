@@ -9,6 +9,10 @@ import Layout from "./components/Layout";
 import Homepage from "./components/Home";
 import Review from "./components/Review";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import NewReleases from "./components/NewReleases";
+import Top from "./components/Top";
+import AllGames from "./components/AllGames";
+import Browse from "./components/Browse";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +26,22 @@ const router = createBrowserRouter([
       {
         path: "/reviews",
         element: <Review />,
+      },
+      {
+        path: "/new_releases",
+        element: <NewReleases />,
+      },
+      {
+        path: "/top",
+        element: <Top />,
+      },
+      {
+        path: "/allgames",
+        element: <AllGames />,
+      },
+      {
+        path: "/browse",
+        element: <Browse />,
       },
     ],
   },
