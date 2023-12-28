@@ -94,7 +94,7 @@ const GenreList = () => {
                     color={genre.id === selectedGenreId ? "tomato" : "normal"}
                     onClick={() => {
                       setSelectedGenreId(genre.id);
-                      navigate("/");
+                      navigate("/allgames");
                     }}
                   >
                     {genre.name}

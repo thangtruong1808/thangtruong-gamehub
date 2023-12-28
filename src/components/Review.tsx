@@ -23,8 +23,20 @@ const Review = () => {
       >
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
-            <Box fontSize={"30px"} fontWeight={"bold"} margin={5}>
+            <Box fontSize={"20px"} fontWeight={"bold"} margin={5}>
               <Link to="/reviews">Reviews</Link>
+            </Box>
+            <Box fontSize={"20px"} fontWeight={"bold"} margin={5}>
+              <Link to="/new_releases">New Releases</Link>
+            </Box>
+            <Box fontSize={"20px"} fontWeight={"bold"} margin={5}>
+              <Link to="/top">Top</Link>
+            </Box>
+            <Box fontSize={"20px"} fontWeight={"bold"} margin={5}>
+              <Link to="/allgames">All Games</Link>
+            </Box>
+            <Box fontSize={"20px"} fontWeight={"bold"} margin={5}>
+              <Link to="/browse">Browse</Link>
             </Box>
             <GenreList />
           </GridItem>

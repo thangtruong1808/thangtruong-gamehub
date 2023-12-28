@@ -5,6 +5,7 @@ import GameHeading from "./GameHeading";
 import PlatformSelector from "./PlatformSelector";
 import SortSelector from "./SortSelector";
 import GameGrid from "./GameGrid";
+import DisplayPlatforms from "./DisplayPlatforms";
 const Home = () => {
   return (
     <>
@@ -44,13 +45,12 @@ const Home = () => {
           <Box paddingLeft={2}>
             <GameHeading />
             <Flex marginBottom={5}>
-              <Box marginRight={5}>
-                <PlatformSelector />
-              </Box>
+              <Box marginRight={5}>{/* <PlatformSelector /> */}</Box>
               <SortSelector />
             </Flex>
           </Box>
-          <GameGrid />
+          {/* <GameGrid /> */}
+          <DisplayPlatforms />
         </GridItem>
       </Grid>
     </>

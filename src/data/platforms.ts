@@ -509,7 +509,7 @@ export default {
     {
       id: 10,
       name: "Commodore / Amiga",
-      slug: "commodore-amiga",
+      slug: "commodore_amiga",
       platforms: [
         {
           id: 166,
@@ -611,7 +611,7 @@ export default {
     {
       id: 12,
       name: "3DO",
-      slug: "3do",
+      slug: "threeDO",
       platforms: [
         {
           id: 111,
@@ -629,7 +629,7 @@ export default {
     {
       id: 13,
       name: "Neo Geo",
-      slug: "neo-geo",
+      slug: "neo_geo",
       platforms: [
         {
           id: 12,
