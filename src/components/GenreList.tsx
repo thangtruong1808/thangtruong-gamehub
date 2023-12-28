@@ -10,14 +10,13 @@ import {
   Center,
   Heading,
 } from "@chakra-ui/react";
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
 import getCroppedImageURL from "../services/image-url";
+import useGameQueryStore from "./MyStore";
 
-interface Props {
-  onSelectedGenre: (genre: Genre) => void;
-  // styleSelectedGenre: Genre | null;
-}
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = () => {
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
   const { data, isLoading, error } = useGenres();
 
   if (error)
@@ -42,28 +41,33 @@ const GenreList = ({ onSelectedGenre }: Props) => {
   return (
     <List>
       <Heading fontSize={"30px"} marginBottom={3} textAlign={"left"} margin={5}>
-        Categories
+        Genre
       </Heading>
-      {data.map((genre) => (
+      {data?.results.map((genre) => (
         <ListItem key={genre.id} paddingY={"7px"} marginX={5}>
-          <HStack overflow={"hidden"}>
+          <HStack
+            overflow={"hidden"}
+            onClick={() => {
+              setSelectedGenreId(genre.id);
+            }}
+          >
             <Image
               objectFit={"cover"}
               boxSize={"70px"}
               borderRadius={"10px"}
               src={getCroppedImageURL(genre.image_background)}
-              onClick={() => {
-                onSelectedGenre(genre);
-              }}
+              // onClick={() => {
+              //   setSelectedGenreId(genre.id);
+              // }}
             />
             <Button
               fontSize={"lg"}
               variant={"link"}
-              onClick={() => {
-                onSelectedGenre(genre);
-              }}
               whiteSpace={"normal"}
               textAlign={"left"}
+              // onClick={() => {
+              //   setSelectedGenreId(genre.id);
+              // }}
             >
               {genre.name}
             </Button>
